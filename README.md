@@ -15,8 +15,7 @@ I got 1-min candle data from the Binance market and 1-day candle data from the U
 
 ### 2. Training set
 
-####  a. Calculate statistical information and put them into each column 
-
+####  a. Generate some features and statistical indicatorors 
 
 ##### ※ [*MACD*](https://en.wikipedia.org/wiki/MACD) ※
 
@@ -26,7 +25,8 @@ I got 1-min candle data from the Binance market and 1-day candle data from the U
 
 ##### ※ [*MFI*](https://en.wikipedia.org/wiki/Money_flow_index) ※
 
-
+##### ※ Price difference ※
+Match and set time index both the Upbit data and the Binance data and calculate the crypto price difference between the Binance and the Upbit(Korean)
 
 ##### ※ *AmOfChanges* ※
 
