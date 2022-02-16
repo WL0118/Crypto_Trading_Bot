@@ -34,7 +34,7 @@ Calculate changes for selected features in a certain time period.
 
 ##### ※ *ShiftNadd* ※
 
-
+To find a relationship between past data and present data 'ShiftNadd' attaches a certain past row of selected features to the present row.
 
 ||price|RSI|AmOfChanges_1|
 |---|---|---|---|
@@ -52,7 +52,6 @@ Apply the 1 ShiftNadd with 'Price', 'RSI' and 'AmOfChanges_1'
 |2022_01_03|3$|40|0.3|&#x1F537;**2$**|&#x1F537;**35**|&#x1F537;**1**|
 
 
-To find a relationship between past data and present data 'ShiftNadd' attaches a certain past row of selected features to the present row.
 
 ####  b.
 ####  c.
