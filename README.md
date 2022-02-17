@@ -53,7 +53,21 @@ Apply the 1 ShiftNadd with 'Price', 'RSI' and 'AmOfChanges_1'
 
 
 
-####  b.
+####  b. Set the target variable
+
+I assumed that there are some special signals before a rapid price increase. Therefore, I put '1' in every row that their future price is a certain amount higher than their price. 
+
+ *ex)Set criterium as **0.5** by 1 min*
+||price|target|
+|---|---|---|
+|2022_01_01_00:00|100$|**1**(100.5-100 = 0.5)|
+|2022_01_01_00:01|100.5$|**0**(100.4-100.5=-0.1)|
+|2022_01_01_00:02|100.4$|**0**(100.5-100.4=0.1)|
+|2022_01_01_00:03|100.5$|**1**(101.1-100.5 = 0.6)|
+|2022_01_01_00:04|101$|Null|
+
+
+
 ####  c.
 ####  d.
 
