@@ -1,5 +1,5 @@
 # Crypto_Trading_Bot
-** * Only for study, I recommend running this bot with the 'dyrun' mode on the Freqtrade system.*  **
+** * Only for study, I recommend running this bot with the 'dryrun' mode on the Freqtrade system.*  **
 
 
 This trading bot runs on the ['Freqtrade'](https://www.freqtrade.io/en/stable/) as a strategy. The model used in the bot indicates critical price-increasing signals. 
@@ -67,8 +67,12 @@ I assumed that there are some special signals before a rapid price increase. The
 |2022_01_01_00:04|101$|Null|
 
 
+## Freaqtrade
 
-####  c.
-####  d.
+### 1. [Install Freqtrade](https://www.freqtrade.io/en/stable/docker_quickstart/)
 
-## Freaqtrade strategy 
+### 2. 
+
+
+
+
