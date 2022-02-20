@@ -69,10 +69,18 @@ I assumed that there are some special signals before a rapid price increase. The
 
 ## Freaqtrade
 
-### 1. [Install Freqtrade](https://www.freqtrade.io/en/stable/docker_quickstart/)
+### 1. [Install Freqtrade(docker_quickstart)](https://www.freqtrade.io/en/stable/docker_quickstart/)
 
-### 2. 
+### 2. Docker-Compose 
+Change the **'./docker/Dockerfile.custom'** File to import LightGBM on the docker envronmoent. 
 
+### 3. Strategy File
 
+#### a. Get Candle realtime-data from the Binance and the Upbit.
 
+#### b. Set realtime test dataframe
+Using the candle data from step a, convert them into test data which has the same format as training data.
+
+#### c. Signal.
+When the model shows a signal, give the signal to the Freaktrade system to buy crypto-currency and automatically send a sell signal after certain minutes.
 
