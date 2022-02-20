@@ -72,7 +72,7 @@ I assumed that there are some special signals before a rapid price increase. The
 ### 1. [Install Freqtrade(docker_quickstart)](https://www.freqtrade.io/en/stable/docker_quickstart/)
 
 ### 2. Docker-Compose 
-Change the **'./docker/Dockerfile.custom'** File to import LightGBM on the docker envronmoent. 
+Change the **'./docker/Dockerfile.custom'** File to import LightGBM on the docker environment. 
 
 ### 3. Strategy File
 
