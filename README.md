@@ -2,7 +2,7 @@
 ** * Only for study, I recommend running this bot with the 'dryrun' mode on the Freqtrade system.*  **
 
 
-This trading bot runs on the ['Freqtrade'](https://www.freqtrade.io/en/stable/) as a strategy. The model used in the bot indicates critical price-increasing signals. 
+This trading bot runs on the ['Freqtrade'](https://www.freqtrade.io/en/stable/) trading environment. The model used in the bot indicates critical price-increasing signals. 
 It is made of LightGBM including statistical trading indicators as well as many manipulated features such as price difference between crypto markets.
 
 
