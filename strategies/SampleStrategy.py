@@ -179,17 +179,20 @@ class SampleStrategy(IStrategy):
                   ]
 
 
-        
+        DDF = DayDataFrame()
+        MDF = modify_df()
+
+
         if(dataframe['date'].iloc[-1].hour==0 and dataframe['date'].iloc[-1].minute==0):
             binanace_usdt_crypto = crypto_+"USDT"
             upbit_usdt_crypto = "USDT-"+crypto_
-            DayDataFrame().binance2csv(binanace_usdt_crypto,req_DAY_len)
+            DDF.binance2csv(binanace_usdt_crypto,req_DAY_len)
 
             
-            DayDataFrame().upbit2csv(Coin_Name=upbit_usdt_crypto, candleFrequent='D', req_number=req_DAY_len,Last_time ='')
+            DDF.upbit2csv(Coin_Name=upbit_usdt_crypto, candleFrequent='D', req_number=req_DAY_len,Last_time ='')
 
             
-            modify_df().modify_day_df(crypto_,req_DAY_len)
+            MDF.modify_day_df(crypto_,req_DAY_len)
 
 
 
@@ -204,16 +207,16 @@ class SampleStrategy(IStrategy):
         dataframe = dataframe.merge(Day_df,on='DAY_UTC_Day')
         
         dataframe['Min_delta']=dataframe.apply(lambda x : (x['date'] - start_train_time).total_seconds()/60,axis=1)
-        dataframe = modify_df().BB(dataframe ,'Volume' , BB_len=5, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Volume' , BB_len=20, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Volume' , BB_len=60, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Volume' , BB_len=120, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Volume' , BB_len=200, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Close' , BB_len=5, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Close' , BB_len=20, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Close' , BB_len=60, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Close' , BB_len=120, unit=2,isFutureVal=0)
-        dataframe = modify_df().BB(dataframe ,'Close' , BB_len=200, unit=2,isFutureVal=0)  
+        dataframe = MDF.BB(dataframe ,'Volume' , BB_len=5, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Volume' , BB_len=20, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Volume' , BB_len=60, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Volume' , BB_len=120, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Volume' , BB_len=200, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Close' , BB_len=5, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Close' , BB_len=20, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Close' , BB_len=60, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Close' , BB_len=120, unit=2,isFutureVal=0)
+        dataframe = MDF.BB(dataframe ,'Close' , BB_len=200, unit=2,isFutureVal=0)  
         
 
         
@@ -236,16 +239,16 @@ class SampleStrategy(IStrategy):
         #df = Stochastic(df,isFutureVal=0)
         dataframe['slow_K_1'], dataframe['slow_D_1'] = ta.STOCH(dataframe['High'], dataframe['Low'], dataframe['Close'], fastk_period=5, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0)
         ################################################################################################################
-        dataframe = modify_df().Slope(dataframe,1,Slope_1_min)
-        dataframe = modify_df().Slope(dataframe,3,Slope_3_5_min)
-        dataframe = modify_df().Slope(dataframe,5,Slope_3_5_min)
+        dataframe = MDF.Slope(dataframe,1,Slope_1_min)
+        dataframe = MDF.Slope(dataframe,3,Slope_3_5_min)
+        dataframe = MDF.Slope(dataframe,5,Slope_3_5_min)
         dataframe = dataframe.replace(np.inf, np.nan)
-        dataframe = modify_df().ShiftNadd(dataframe,max_min,1)
-        dataframe = modify_df().ShiftNadd(dataframe,max_min,2)
-        dataframe = modify_df().ShiftNadd(dataframe,max_min,3)
-        dataframe = modify_df().ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],1)
-        dataframe = modify_df().ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],2)
-        dataframe = modify_df().ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],3)
+        dataframe = MDF.ShiftNadd(dataframe,max_min,1)
+        dataframe = MDF.ShiftNadd(dataframe,max_min,2)
+        dataframe = MDF.ShiftNadd(dataframe,max_min,3)
+        dataframe = MDF.ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],1)
+        dataframe = MDF.ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],2)
+        dataframe = MDF.ShiftNadd(dataframe,[ele+'_slope_1' for ele in Slope_1_min],3)
         dataframe['DAY_Kimchi_PriMean_5'] = dataframe.apply(lambda x :np.nan if np.isnan(x['DAY_Kimchi_PriMean_5']) else round(x['DAY_Kimchi_PriMean_5']),axis=1)
         
         dataframe = dataframe.drop(columns=['DAY_UTC_Day'])
