@@ -5,7 +5,12 @@
 This trading bot runs on the ['Freqtrade'](https://www.freqtrade.io/en/stable/) trading environment. The model used in the bot indicates critical price-increasing signals. 
 It is made of LightGBM including statistical trading indicators as well as many manipulated features such as price difference between crypto markets.
 
+We can check the trading results on the Telegram
+![image](https://user-images.githubusercontent.com/70621565/156699359-a9254630-f888-4179-b4d2-7ca837f1b3f8.png)
 
+Also, we can check the signals and indicators on our cloud server.
+
+![image](https://user-images.githubusercontent.com/70621565/156698599-09f07709-305e-44eb-a7ce-12c46fb978d9.png)
 
 ## The Model
 
